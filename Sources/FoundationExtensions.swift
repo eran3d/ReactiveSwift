@@ -96,6 +96,8 @@ extension DispatchTimeInterval {
 			return TimeInterval( UInt64(us) * NSEC_PER_USEC ) / TimeInterval(NSEC_PER_SEC)
 		case let .nanoseconds(ns):
 			return TimeInterval(ns) / TimeInterval(NSEC_PER_SEC)
+		default:
+			return TimeInterval()
 		}
 	}
 
@@ -111,6 +113,8 @@ extension DispatchTimeInterval {
 			return .microseconds(-us)
 		case let .nanoseconds(ns):
 			return .nanoseconds(-ns)
+		default:
+			return .never
 		}
 	}
 
